@@ -1,6 +1,6 @@
 .PHONY: help clean cloc readme \
         pre-commit-run ty lint format \
-        install nuke publish test
+        install nuke publish test git-hooks
 
 CLOC := cloc
 
@@ -22,6 +22,10 @@ clean: ## Remove caches and compiled files
 cloc: ## Show code statistics using cloc
 	@echo "Code statistics using cloc:"
 	$(CLOC) --exclude-dir=.venv,venv .
+
+# make git-hooks && git config --get core.hooksPath && git status
+git-hooks: ## Install git hooks
+	git config core.hooksPath .githooks
 
 ########
 # LINT #
@@ -50,7 +54,7 @@ format: pre-commit-run ## Auto-format code and fix lint issues
 uv.lock:
 	uv lock --check || uv lock
 
-install: uv.lock ## Install project dependencies with uv
+install: git-hooks uv.lock ## Install project dependencies with uv
 	uv sync --all-extras
 	@$(MAKE) --no-print-directory clean
 
