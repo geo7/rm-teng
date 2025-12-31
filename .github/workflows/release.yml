@@ -40,7 +40,7 @@ jobs:
       - name: Python Semantic Release
         id: release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Run directly on the host using uv, so it can access 'uv build'
         run: uv run semantic-release version
 
