@@ -2,6 +2,15 @@
 
 All versions below are listed in reverse chronological order.
 
+## v1.0.3 (2025-12-31)
+
+### Bug Fixes
+
+- Update GITHUB_ -> GH_ for semantic-release Github release step
+  ([#6](https://github.com/geo7/rm-teng/pull/6),
+  [`039164c`](https://github.com/geo7/rm-teng/commit/039164c1c7e4a957b670ea6922b4e9d88c882c5a))
+
+
 ## v1.0.2 (2025-12-31)
 
 ### Bug Fixes
