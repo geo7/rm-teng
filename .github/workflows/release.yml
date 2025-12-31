@@ -53,5 +53,5 @@ jobs:
       - name: Publish package distributions to GitHub Releases
         if: steps.release.outputs.released == 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: uv run semantic-release publish
