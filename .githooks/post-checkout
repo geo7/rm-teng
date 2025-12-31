@@ -4,5 +4,12 @@
 
 # $3 is 1 for branch checkout, 0 for file checkout
 if [ "$3" = "1" ]; then
+  # If we're checking out 'main' then run git pull
+  current_branch=$(git branch --show-current)
+  if [ "$current_branch" = "main" ]; then
+    echo "Switched to main. Pulling latest changes..."
+    git pull --quiet || echo "Warning: git pull failed, continuing with local version."
+  fi
   make install
 fi
+
