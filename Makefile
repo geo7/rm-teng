@@ -37,7 +37,10 @@ pre-commit-run: ## Run all pre-commit hooks
 ty: ## Run type checks
 	uv run ty check . -v
 
-lint: ty ## Run linting (type-check + ruff)
+deptry: ## Check dependencies are used
+	uv run deptry .
+
+lint: ty deptry ## Run linting
 	uv run ruff format . --check
 	uv run ruff check .
 	@$(MAKE) --no-print-directory clean

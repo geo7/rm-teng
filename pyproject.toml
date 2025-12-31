@@ -18,6 +18,7 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = [
+    "deptry>=0.24.0",
     "pre-commit>=4.5.0",
     "pytest>=9.0.2",
     "pytest-cov>=7.0.0",

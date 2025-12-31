@@ -1,0 +1,19 @@
+name: Deptry
+on: [push]
+
+jobs:
+  deptry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Deptry
+        run: uv run deptry .
