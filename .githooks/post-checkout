@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# https://git-scm.com/docs/githooks#_post_checkout
+
+# $3 is 1 for branch checkout, 0 for file checkout
+if [ "$3" = "1" ]; then
+  make install
+fi
